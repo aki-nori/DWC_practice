@@ -1,68 +1,75 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b
+}
 
-  .clearfix::after {
-      content: "";
-      display: block;
-      clear: both;
-  }
+a {
+  text-decoration: none;
+}
 
-  .header {
-    width: 100%; /* 横幅いっぱい */
-    height: 120px; /* 高さ120px */
-    background-color: red; /* 背景赤色 */
-  }
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
-  .header-top {
-      width: 100%;
-      height: 70px;
-      background-color: hotpink;
-  }
+header {
+  width: 90%;
+  padding: 15px 0;
+  margin: 0 auto;
+}
 
-  .header-bottom {
-      width: 100%;
-      height: 50 px;
-      background-color: pink;
-  }
+header .headline {
+  font-size: 32px;
+  text-align: center;
+}
 
-  .main-visual {
-      width: 100%;
-      height: 300px;
-      background-color: orange;
-  }
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
 
-  .main-visual-content {
-      width: 350px;
-      height: 300px;
-      background-color: gold;
-  }
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
 
-  .main {  
-      width: 840px;
-      /* height: 1400px; */
-      background-color: green;
-      margin: 0 auto;
-  }
+.main-visual {
+  width: 100%;
+  height: 300px;
+}
+.main-visual-content{
+  width: 350px;
+  height: 300px;
+}
 
-  .blog {
-      width: 600px;
-      height: 1400px;
-      background-color: limegreen;
-      float: left;
-  }
+.main {
+  width: 840px;
+  margin: 0 auto;
+}
+.blog {
+  width: 600px;
+  height: 1400px;
+  float: left;
+}
+.sidebar {
+  width: 240px;
+  height: 1400px;
+  float: left;
+}
 
-  .sidebar {
-      width: 240px;
-      height: 1400px;
-      background-color: palegreen;
-      float: left;
-  }
+footer {
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  padding: 50px 0;
+  background-color: #848282
+}
 
-  .footer {
-      width: 100%;
-      height: 120px;
-      background-color: blue;
-  }
+.footer-text {
+  color: #fff
+}
