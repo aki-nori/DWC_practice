@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.main {
+	margin: 50px auto;
+	width: 960px;
+}
+
+
+.content {
+	display: inline-block;
+	width: 300px;
+	margin-right: 25px;
+	position: relative;
+	border: solid 1px #f3f3f3 ;
+
+}
+
+.content:last-child {
+	margin: 0;
+}
+
+.content-index{
+	background-color: #FE9A4B;
+	padding: 3px 2px;
+	color: #fff;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.content-img {
+	margin: 10px;
+	width: 280px;
+}
+
+.content-title {
+	padding: 0 10px;
+}
+
+.content-text {
+	padding: 10px;
+}
