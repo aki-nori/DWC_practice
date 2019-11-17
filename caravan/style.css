@@ -18,7 +18,7 @@ a {
 header {
   width: 90%;
   padding: 15px 0;
-  margin: 0 auto;
+  margin: 15px auto;
 }
 
 header .headline {
@@ -119,9 +119,83 @@ main {
   font-size: 11px;
 }
 
+.pagination {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.pagination p {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  color: #fff;
+  background-color: #acabab;
+  border-radius: 3px;
+  margin: 0 5px;
+  line-height: 30px;
+}
+
 .sidebar {
   width: 230px;
   float: left;
+}
+
+.sidebar-headline, .instagram-headline, .categories-headline {
+  border-bottom: 8px solid #f7f7f7;
+  text-align: center;
+  line-height: 0.6;
+}
+
+.sidebar-contents {
+  padding: 50px 0;
+}
+
+.popular-text, .categories-text {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f7f7f7;
+  margin-bottom: 5px;
+}
+
+.popular-text:last-child, .categories-text:last-child {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.instagram-box {
+  float: left;
+  width: 110px;
+  padding-top: 110px;
+  background-size: cover;
+  background-position: center;
+}
+
+.instagram-box:nth-child(odd) {
+  margin: 0 10px 10px 0;
+}
+
+.instagram-box:nth-child(1) {
+  background-image: url(img/airport.jpg);
+}
+
+.instagram-box:nth-child(2) {
+  background-image: url(img/japan.jpg);
+}
+
+.instagram-box:nth-child(3) {
+  background-image: url(img/snow.jpg);
+}
+
+.instagram-box:nth-child(4) {
+  background-image: url(img/japan2.jpg);
+}
+
+.instagram-box:nth-child(5) {
+  background-image: url(img/lake.jpg);
+}
+
+.instagram-box:nth-child(6) {
+  background-image: url(img/road.jpg);
 }
 
 footer {
