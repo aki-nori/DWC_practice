@@ -1,0 +1,59 @@
+<% error_flag_title = false %>
+<% error_flag_body = false %>
+
+<h1>Editing Book</h1>
+
+<% if @book.errors.any? %>
+<div class="error_explanation">
+	<p><%= "#{@book.errors.count} errors prohibited this book from being saved:" %></p>
+
+	<ul>
+		<% @book.errors.full_messages.each do |message| %>
+			<li>
+    			<%= message %>
+			</li>
+			<% if message == "Title can't be blank" %>
+			<% error_flag_title = true %>
+			<% elsif message == "Body can't be blank" %>
+			<% error_flag_body = true %>
+			<% end %>
+		<% end %>
+	</ul>
+	</div>
+<% end %>
+
+<%= form_for(@book) do |f| %>
+
+<% if error_flag_title %>
+<div class="field_with_errors">
+<% end %>
+
+<div class="field">
+<label>Title</label>
+<%= f.text_field :title %>
+</div>
+
+<% if error_flag_title %>
+</div>
+<% end %>
+
+<% if error_flag_body %>
+<div class="field_with_errors">
+<% end %>
+
+<div class="field">
+<label>Body</label>
+<%= f.text_area :body %>
+</div>
+
+<% if error_flag_body %>
+</div>
+<% end %>
+
+
+<%= f.submit "Update Book" %>
+<% end %>
+
+<%= link_to "Show", book_path(@book) %>
+|
+<%= link_to "Back", books_path %>
