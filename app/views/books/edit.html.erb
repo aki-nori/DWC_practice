@@ -9,44 +9,44 @@
 
 	<ul>
 		<% @book.errors.full_messages.each do |message| %>
-			<li>
-    			<%= message %>
-			</li>
-			<% if message == "Title can't be blank" %>
-			<% error_flag_title = true %>
-			<% elsif message == "Body can't be blank" %>
-			<% error_flag_body = true %>
-			<% end %>
+		<li>
+			<%= message %>
+		</li>
+		<% if message == "Title can't be blank" %>
+		<% error_flag_title = true %>
+		<% elsif message == "Body can't be blank" %>
+		<% error_flag_body = true %>
+		<% end %>
 		<% end %>
 	</ul>
-	</div>
+</div>
 <% end %>
 
 <%= form_for(@book, url: book_path(@book)) do |f| %>
 
 <% if error_flag_title %>
 <div class="field_with_errors">
-<% end %>
+	<% end %>
 
-<div class="field">
-<label>Title</label>
-<%= f.text_field :title %>
-</div>
+	<div class="field">
+		<label>Title</label>
+		<%= f.text_field :title %>
+	</div>
 
-<% if error_flag_title %>
+	<% if error_flag_title %>
 </div>
 <% end %>
 
 <% if error_flag_body %>
 <div class="field_with_errors">
-<% end %>
+	<% end %>
 
-<div class="field">
-<label>Body</label>
-<%= f.text_area :body %>
-</div>
+	<div class="field">
+		<label>Body</label>
+		<%= f.text_area :body %>
+	</div>
 
-<% if error_flag_body %>
+	<% if error_flag_body %>
 </div>
 <% end %>
 

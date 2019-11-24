@@ -14,71 +14,71 @@
  *= require_self
  */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: black;
-}
+ * {
+ 	margin: 0;
+ 	padding: 0;
+ 	box-sizing: border-box;
+ 	color: black;
+ }
 
-body {
-    margin: 33px;
-    font-size: 13px;
-}
+ body {
+ 	margin: 33px;
+ 	font-size: 13px;
+ }
 
-p {
-    margin: 33px;
-}
+ p {
+ 	margin: 33px;
+ }
 
-th {
-    padding: 1px 1px 5px 1px;
-}
+ th {
+ 	padding: 1px 1px 5px 1px;
+ }
 
-td {
-    padding: 1px 5px 7px 5px;
-}
+ td {
+ 	padding: 1px 5px 7px 5px;
+ }
 
-.field {
-    margin-bottom: 10px;
-}
+ .field {
+ 	margin-bottom: 10px;
+ }
 
-.field label {
-    display: block;
-}
+ .field label {
+ 	display: block;
+ }
 
-.flash {
-    color: green;
-}
+ .flash {
+ 	color: green;
+ }
 
-.error_explanation {
-	width: 450px;
-	margin: 20px 20px 20px 0	;
-	border: 2px solid red;
-}
+ .error_explanation {
+ 	width: 450px;
+ 	margin: 20px 20px 20px 0	;
+ 	border: 2px solid red;
+ }
 
-.error_explanation p {
-	margin: 0;
-	color: white;
-	font-weight: bold;
-	background-color: #c00;
-	padding: 5px 5px 5px 15px;
-}
+ .error_explanation p {
+ 	margin: 0;
+ 	color: white;
+ 	font-weight: bold;
+ 	background-color: #c00;
+ 	padding: 5px 5px 5px 15px;
+ }
 
-.error_explanation ul {
-	margin: 33px;
-	padding-left: 40px;
-}
+ .error_explanation ul {
+ 	margin: 33px;
+ 	padding-left: 40px;
+ }
 
-.field_with_errors label {
-	display: table;
-	background-color: red;
-}
+ .field_with_errors label {
+ 	display: table;
+ 	background-color: red;
+ }
 
-.field_with_errors input {
-	border: 2px solid red;
-}
+ .field_with_errors input {
+ 	border: 2px solid red;
+ }
 
-.field_with_errors textarea {
-	border: 2px solid red;
-}
+ .field_with_errors textarea {
+ 	border: 2px solid red;
+ }
 

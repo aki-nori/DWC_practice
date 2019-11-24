@@ -3,32 +3,32 @@
 
 <h1 class="test">Books</h1>
 <table>
-    <tr>
-        <th>Title</th>
-        <th>Body</th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-    <% @books.each do |book| %>
-    <tr>
-        <td>
-            <%= book.title %>
-        </td>
-        <td>
-            <%= book.body %>
-        </td>
-        <td>
-            <%= link_to "Show", book_path(book) %>
-        </td>
-        <td>
-            <%= link_to "Edit", edit_book_path(book) %>
-        </td>
-        <td>
-            <%= link_to "Destroy", book_path(book), method: :delete, "data-confirm" => "Are you sure?" %>
-        </td>
-    </tr>
-    <% end %>
+	<tr>
+		<th>Title</th>
+		<th>Body</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% @books.each do |book| %>
+	<tr>
+		<td>
+			<%= book.title %>
+		</td>
+		<td>
+			<%= book.body %>
+		</td>
+		<td>
+			<%= link_to "Show", book_path(book) %>
+		</td>
+		<td>
+			<%= link_to "Edit", edit_book_path(book) %>
+		</td>
+		<td>
+			<%= link_to "Destroy", book_path(book), method: :delete, "data-confirm" => "Are you sure?" %>
+		</td>
+	</tr>
+	<% end %>
 </table>
 
 <h2>New book</h2>
@@ -39,53 +39,49 @@
 
 	<ul>
 		<% @book.errors.full_messages.each do |message| %>
-			<li>
-    			<%= message %>
-			</li>
-			
-			<% if message == "Title can't be blank" %>
-			<% error_flag_title = true %>
-			<% elsif message == "Body can't be blank" %>
-			<% error_flag_body = true %>
-			<% end %>
+		<li>
+			<%= message %>
+		</li>
+		<% if message == "Title can't be blank" %>
+		<% error_flag_title = true %>
+		<% elsif message == "Body can't be blank" %>
+		<% error_flag_body = true %>
+		<% end %>
 		<% end %>
 	</ul>
-	</div>
+</div>
 <% end %>
-
-
 
 <%= form_for(@book, url: books_path(@book)) do |f| %>
-
 <% if error_flag_title == true %>
 <div class="field_with_errors">
-<% end %>
+	<% end %>
 
 	<div class="field">
-    	<label>Title</label>
-    	<%= f.text_field :title %>
+		<label>Title</label>
+		<%= f.text_field :title %>
 	</div>
 
-<% if error_flag_title == true %>
+	<% if error_flag_title == true %>
 </div>
 <% end %>
 
 
 <% if error_flag_body == true %>
 <div class="field_with_errors">
-<% end %>
+	<% end %>
 
 	<div class="field">
-    	<label>Body</label>
-    	<%= f.text_area :body %>
+		<label>Body</label>
+		<%= f.text_area :body %>
 	</div>
 
-<% if error_flag_body == true %>
+	<% if error_flag_body == true %>
 </div>
 <% end %>
 
-	<div class="actions">
-    	<%= f.submit "Create Book" %>
-	</div>
+<div class="actions">
+	<%= f.submit "Create Book" %>
+</div>
 
 <% end %>
