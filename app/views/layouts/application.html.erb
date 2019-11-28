@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bookers2</title>
+
+<head>
+    <title>Bookers_2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
+<body>
+    <header>
+        <ul>
+            <% if user_signed_in? %>
+             <li class="">
+                <%= link_to "Home", user_path(current_user.id) %>
+            </li>
+            <li class="">
+                <%= link_to "Users", users_path %>
+            </li>
+            <li class="">
+                <%= link_to "Books", books_path %>
+            </li>
+            <li class="">
+                <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            </li>
+            <% else %>
+            <li class="">
+                <%= link_to "Home", top_path %>
+            </li>
+            <li class="">
+                <%= link_to "About", about_path %>
+            </li>
+            <li class="">
+                <%= link_to "sign up", new_user_registration_path %>
+            </li>
+            <li class="">
+                <%= link_to "login", new_user_session_path %>
+            </li>
+            <% end %>
+        </ul>
+    </header>
+    <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+    <% end %>
     <%= yield %>
-  </body>
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
+</body>
+
 </html>

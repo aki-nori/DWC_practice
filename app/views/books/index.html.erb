@@ -1,0 +1,54 @@
+<h1>books#index</h1>
+
+<% if @new_book.errors.any? %>
+	<p><%= "#{@new_book.errors.count} error prohibited this obj from being saved:" %></p>
+	<ul>
+		<% @new_book.errors.full_messages.each do |message| %>
+		<li>
+			<%= message %>
+		</li>
+	</ul>
+	<% end %>
+<% end %>
+
+<h1>User info</h1>
+<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+<table>
+	<tr>
+		<th>name</th>
+		<td><%= current_user.name %></td>
+	</tr>
+	<tr>
+		<th>introduction</th>
+		<td><%= current_user.introduction %></td>
+	</tr>
+</table>
+
+<%= link_to "(edit)", edit_user_path(current_user.id) %>
+
+<h1>New book</h1>
+
+<%= form_for(@new_book) do |f| %>
+Title
+<%= f.text_field :title %>
+Opinion
+<%= f.text_area :body %>
+<%= f.submit "Create Book" %>
+<% end %>
+
+
+<h1>Books（すべの本一覧）</h1>
+<table>
+<tr>
+	<th></th>
+	<th>Title</th>
+	<th>Opinion</th>
+</tr>
+<% @books.each do |book| %>
+<tr>
+<td><%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
+<td><%= link_to book.title, book_path(book) %></td>
+<td><%= book.body %></td>
+</tr>
+<% end %>
+</table>

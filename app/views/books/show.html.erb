@@ -1,0 +1,51 @@
+<h1>books#show</h1>
+
+
+<% if @new_book.errors.any? %>
+	<p><%= "#{@new_book.errors.count} error prohibited this obj from being saved:" %></p>
+	<ul>
+		<% @new_book.errors.full_messages.each do |message| %>
+		<li>
+			<%= message %>
+		</li>
+	</ul>
+	<% end %>
+<% end %>
+
+
+<h1>User info</h1>
+<%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+<table>
+	<tr>
+		<th>name</th>
+		<td><%= @book.user.name %></td>
+	</tr>
+	<tr>
+		<th>introduction</th>
+		<td><%= @book.user.introduction %></td>
+	</tr>
+</table>
+
+<h1>New book</h1>
+
+<%= form_for(@new_book) do |f| %>
+Title
+<%= f.text_field :title %>
+Opinion
+<%= f.text_area :body %>
+<%= f.submit "Create Book" %>
+<% end %>
+
+
+<h1>Book detail（選択した本）</h1>
+<table>
+<tr>
+	<td>image<br><%= @book.user.name %></td>
+	<td><%= @book.title %></td>
+	<td><%= @book.body %></td>
+	<% if @book.user.id == current_user.id %>
+	<td><%= link_to "Edit", edit_book_path(@book) %></td>
+	<td><%= link_to "Destroy", book_path(@book),  method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+	<% end %>
+</tr>
+</table>
