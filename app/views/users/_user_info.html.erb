@@ -1,0 +1,24 @@
+<div class="user-info">
+<h2>User info</h2>
+<%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+<table class="table">
+	<tr>
+		<th>name</th>
+		<td>
+			<%= user.name %>
+		</td>
+	</tr>
+	<tr>
+		<th>introduction</th>
+		<td>
+			<%= user.introduction %>
+		</td>
+	</tr>
+</table>
+
+<% if user.id == current_user.id %>
+<%= link_to "", edit_user_path(user.id), class: 'col-xs-12 btn btn-default glyphicon glyphicon-wrench' %>
+<% else %>
+<%= link_to "", user_path(current_user.id), class: 'col-xs-12 btn btn-default glyphicon glyphicon-wrench' %>
+<% end %>
+</div>

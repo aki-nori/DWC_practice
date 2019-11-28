@@ -1,44 +1,27 @@
-<h1>users#show</h1>
-<h1>User info</h1>
-<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-<table>
-	<tr>
-		<th>name</th>
-		<td><%= @user.name %></td>
-	</tr>
-	<tr>
-		<th>introduction</th>
-		<td><%= @user.introduction %></td>
-	</tr>
-</table>
+<div class="container">
 
-<% if @user.id == current_user.id %>
-<%= link_to "(edit)", edit_user_path(current_user.id) %>
-<% elsif %>
-<%= link_to "(edit)", user_path(current_user.id) %>
-<% end %>
+	<%= render 'books/error_explanation', obj: @new_book %>
+	<div class="col-xs-3">
+		<%= render 'users/user_info', user: @user %>
+		<%= render 'books/new_book', book: @new_book %>
+	</div>
 
-<h1>New book</h1>
+	<div class="col-xs-9">
+		<h2>Books</h2>
+		<table class="table table-hover table-inverse">
+			<tr>
+				<th></th>
+				<th>Title</th>
+				<th>Opinion</th>
+			</tr>
+			<% @user.books.each do |book| %>
+			<tr>
+				<td><%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %></td>
+				<td><%= link_to book.title, book_path(book) %></td>
+				<td><%= book.body %></td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
 
-<%= form_for(@new_book) do |f| %>
-Title
-<%= f.text_field :title %>
-Opinion
-<%= f.text_area :body %>
-<%= f.submit "Create Book" %>
-<% end %>
-
-
-<h1>Books（ユーザが投稿した本一覧）</h1>
-<table>
-<tr>
-	<th>Title</th>
-	<th>Opinion</th>
-</tr>
-<% @user.books.each do |book| %>
-<tr>
-<td><%= link_to book.title, book_path(book) %></td>
-<td><%= book.body %></td>
-</tr>
-<% end %>
-</table>
+</div>

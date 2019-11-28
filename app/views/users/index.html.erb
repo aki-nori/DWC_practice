@@ -1,42 +1,33 @@
-<h1>users#index</h1>
-<h1>User info</h1>
-<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-<table>
-	<tr>
-		<th>name</th>
-		<td><%= current_user.name %></td>
-	</tr>
-	<tr>
-		<th>introduction</th>
-		<td><%= current_user.introduction %></td>
-	</tr>
-</table>
+<div class="container">
 
-<%= link_to "(edit)", edit_user_path(current_user.id) %>
+	<%= render 'books/error_explanation', obj: @new_book %>
+	<div class="col-xs-3">
+		<%= render 'users/user_info', user: current_user %>
+		<%= render 'books/new_book', book: @new_book %>
+	</div>
 
-<h1>New book</h1>
+	<div class="col-xs-9">
+		<h2>Users</h2>
+		<table class="table table-hover table-inverse">
+			<tr>
+				<th>image</th>
+				<th>name</th>
+				<th></th>
+			</tr>
+			<% @users.each do |user| %>
+			<tr>
+				<td>
+					<%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %>
+				</td>
+				<td>
+					<%= user.name %>
+				</td>
+				<td>
+					<%= link_to "Show", user_path(user.id) %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
 
-<%= form_for(@new_book) do |f| %>
-Title
-<%= f.text_field :title %>
-Opinion
-<%= f.text_area :body %>
-<%= f.submit "Create Book" %>
-<% end %>
-
-
-<h1>Users（すべてのユーザ一覧）</h1>
-<table>
-<tr>
-	<th>image</th>
-	<th>name</th>
-	<th></th>
-</tr>
-<% @users.each do |user| %>
-<tr>
-<td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %></td>
-<td><%= user.name %></td>
-<td><%= link_to "Show", user_path(user.id) %></td>
-</tr>
-<% end %>
-</table>
+</div>

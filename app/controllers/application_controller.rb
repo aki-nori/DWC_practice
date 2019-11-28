@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
 #認証していな形場合はログイン画面へ（top画面は例外）
-	before_action :authenticate_user!, except: [:top]
+	before_action :authenticate_user!, except: [:top, :about]
 
 	before_action :configure_permitted_parameters, if: :devise_controller?
   protected
