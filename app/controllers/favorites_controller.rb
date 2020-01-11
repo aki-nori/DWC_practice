@@ -24,7 +24,7 @@ class FavoritesController < ApplicationController
 			elsif path[:controller] == "books" && path[:action] == "index"
 				redirect_to books_path
 			elsif path[:controller] == "users" && path[:action] == "show"
-				redirect_to @favorite.user
+				redirect_to @favorite.book.user
 			end
 		else
 			render "#{path[:controller]}/#{path[:action]}"
