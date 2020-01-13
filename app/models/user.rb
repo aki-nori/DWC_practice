@@ -26,6 +26,8 @@ class User < ApplicationRecord
   validates :name, length: {maximum: 20, minimum: 2}
   validates :introduction, length: {maximum: 50}
 
+  validates :postal_code, length: {is: 7}
+
   def already_favorited?(book)
     self.favorites.exists?(book_id: book.id)
   end

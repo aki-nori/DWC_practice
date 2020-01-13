@@ -16,6 +16,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :postal_code %><br />
+    <%= f.email_field :postal_code, autofocus: true, class: "postal_code" %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
