@@ -64,3 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rqrcode'
 gem 'rqrcode_png'
 gem 'chunky_png'
+
+gem 'simple_calendar'

@@ -1,0 +1,4 @@
+<h1>Events#index</h1>
+<% @events.each do |event| %>
+  <%= link_to event.name, event_path(event) %>
+<% end %>
