@@ -1,0 +1,36 @@
+<table class="table">
+		<tr><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></tr>
+		<tr>
+			<th>name</th>
+			<th><%= user.name %></th>
+		</tr>
+
+		<tr>
+			<th>introduction</th>
+			<th><%= user.introduction %></th>
+		</tr>
+		<tr>
+			<th>follows</th>
+			<th><%= link_to user.followers.count, follows_user_path(user) %></th>
+		</tr>
+		<tr>
+			<th>followers</th>
+			<th><%= link_to user.followings.count, followers_user_path(user) %></th>
+		</tr>
+		<tr>
+			<th>
+				<% unless current_user == user %>
+					<% unless Relationship.exists?(following_id: user.id, follower_id: current_user.id) %>
+						<%= link_to "フォローする", relationships_path(params: {following_id: user.id, follower_id: current_user.id}), method: :post, class: "btn btn-success" %>
+					<% else %>
+						<%= link_to "フォロー外す", relationship_path(user, params: {following_id: user.id, follower_id: current_user.id}), method: :delete, class: "btn btn-danger" %>
+					<% end %>
+				<% end %>
+			</th>
+			<th></th>
+		</tr>
+</table>
+
+<div class="row">
+	<%= link_to '',edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{user.id}" %>
+</div>

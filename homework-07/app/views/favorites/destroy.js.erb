@@ -1,0 +1,1 @@
+$("#favorite-<%= @favorite.book.id %>").html("<%= j(render  partial: 'books/favoritefunc', locals: { book: Book.find(@favorite.book.id) }) %>");
