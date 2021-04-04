@@ -1,0 +1,11 @@
+	<!-- いいね機能 -->
+<% unless current_user.already_favorited?(book) %>
+	<%= link_to favorites_path(params: {user_id: current_user.id, book_id: book.id}), method: :post do %>
+	<i class="far fa-heart"></i>
+	<% end %>
+<% else %>
+	<%= link_to favorite_path(book, params: {user_id: current_user.id, book_id: book.id}), method: :delete do %>
+	<i class="fas fa-heart"></i>
+	<% end %>
+<% end %>
+<%= book.favorited_users.count %>
